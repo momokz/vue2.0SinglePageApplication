@@ -1,4 +1,4 @@
-# vue2.0-demo
+# vue2.0SinglePageApplication
 
 > A Vue.js project
 
