@@ -2,7 +2,7 @@
     <div id="music">
         <div class="music-wrap">
             <ul>
-                <li v-for="(album, index) of albums" @click="showList(index)" :key="album">
+                <li v-for="(album, index) of albums" @click="showList(index)" :key="index">
                     <img :src="album.bg" alt="">
                 </li>
             </ul>

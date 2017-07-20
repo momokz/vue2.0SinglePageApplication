@@ -9,7 +9,8 @@ Vue.use(Vuex);
 
 const state = {
     music: null,
-    loginState: JSON.parse(window.localStorage.getItem('loginState')) ? JSON.parse(window.localStorage.getItem('loginState')).loginState : false
+    loginState: JSON.parse(window.sessionStorage.getItem('loginState')) ? JSON.parse(window.sessionStorage.getItem('loginState')).loginState : false
+        // loginState: false
 };
 
 const mutations = {

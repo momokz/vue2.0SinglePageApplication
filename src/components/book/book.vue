@@ -8,7 +8,7 @@
         <!-- main -->
         <div class="book-wrap">
             <transition-group name="slide" tag="ul">
-                <li v-for="(book, index) in bookList" :key="book" @click="goBookDetail(index)">
+                <li v-for="(book, index) in bookList" :key="index" @click="goBookDetail(index)">
                     <div class="book-img">
                         <img :src="book.book.image" alt="">
                     </div>

@@ -13,6 +13,10 @@
                 <button @click.prevent="login">登录</button>
                 <button @click.prevent="goRegist">注册</button>
             </div>
+            <div class="login-comment">
+                <p>可以自己注册</p>
+                也可以是公共账号：test 密码：test
+            </div>
         </form>
         <div class="overlay" v-show="logging">登录中..</div>
     </div>
@@ -45,7 +49,7 @@ export default {
             }
             this.logging = true;
             if (this.username == 'test' && this.password == 'test' || this.username == loginUser && this.password == loginPassword) {
-                window.localStorage.setItem('loginState', JSON.stringify({
+                window.sessionStorage.setItem('loginState', JSON.stringify({
                     loginState: true
                 }));
                 this.$store.dispatch('setLogin', true);
@@ -83,23 +87,22 @@ export default {
 .login {
     text-align: center;
 }
-
 .md-input-container,
 .md-button {
     margin-top: 20px;
 }
-
 .md-button button:first-child {
     margin-right: 10px;
 }
-
 .md-input-container input {
     border-radius: 5px;
     outline: none;
 }
-
 .overlay {
     margin-top: 20px;
 }
-
+.login-comment{
+    margin-top: 20px;
+    line-height: 20px;
+}
 </style>

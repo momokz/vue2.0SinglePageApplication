@@ -2,7 +2,7 @@
     <div class="movie-coming movie-scroll">
         <div class="movie-content">
             <transition-group name="list" tag="ul">
-                <li v-for="movie in movieComingList" :key="movie" @click="getMovieDetail(movie.id)">
+                <li v-for="(movie, index) in movieComingList" :key="index" @click="getMovieDetail(movie.id)">
                     <div class="movie-content-img">
                         <img :src="movie.images.large" alt="">
                     </div>

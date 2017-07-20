@@ -8,7 +8,7 @@
         <!-- active list main -->
         <div class="music-wrap" v-if="flag" v-show="!spinnerFlag">
             <transition-group name="slider" tag="ul">
-                <li v-for="(music, index) in musicList" @click="goPlay(index)" :key="music">
+                <li v-for="(music, index) in musicList" @click="goPlay(index)" :key="index">
                     <div class="music-img">
                         <img :src="music.album.picUrl" alt="">
                     </div>
@@ -21,7 +21,7 @@
         <!-- search list main -->
         <div class="music-wrap" v-if="!flag" v-show="!spinnerFlag">
             <transition-group name="slider" tag="ul">
-                <li v-for="(music, index) in searchList" @click="goPlay(index)" :key="music">
+                <li v-for="(music, index) in searchList" @click="goPlay(index)" :key="index">
                     <div class="music-img">
                         <img :src="music.album.picUrl" alt="">
                     </div>
