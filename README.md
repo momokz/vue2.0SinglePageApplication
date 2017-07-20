@@ -1,3 +1,9 @@
+#2017-07-20
+
+添加登录页提示
+
+更新了部分文件，在未登录的情况下，不能访问home路径，会重新定向到login
+
 # vue2.0SinglePageApplication
 
 > A Vue.js project
