@@ -1,20 +1,22 @@
 <template>
-    <div class="regist" v-on:keyup.enter="regist">
-        <div class="return-login"><a href="" v-on:click.prevent="login">返回</a>，登录页</div>
-        <form autocomplete="" novalidate>
-            <div class="input-container">
+    <div class="regist">
+        <div class="regist-1">
+            已有账号，
+            <router-link to="/login">返回</router-link> 登录页
+        </div>
+        <ul class="regist-list">
+            <li>
                 <label for="">用户名：</label>
-                <input type="text" v-model="username" v-bind:required="inputFlag">
-            </div>
-            <div class="input-container">
+                <input type="text" v-model="username">
+            </li>
+            <li>
                 <label for="">密&nbsp;&nbsp;&nbsp;&nbsp;码：</label>
-                <input type="password" v-model="password" v-bind:required="inputFlag">
-            </div>
-            <div class="md-button">
-                <button v-on:click.prevent="regist">注册</button>
-            </div>
-        </form>
-        <div class="overlay" v-show="registing">注册中..</div>
+                <input type="password" v-model="password">
+            </li>
+            <li>
+                <button type="button" class="login-btn" @click="regist()">注册</button>
+            </li>
+        </ul>
     </div>
 </template>
 <script>
@@ -23,65 +25,68 @@ export default {
     data() {
         return {
             username: '',
-            password: '',
-            inputFlag: false,
-            registing: false
+            password: ''
         }
     },
     methods: {
         regist() {
-            if (!this.check({
-                    username: this.username,
-                    password: this.password
-                })) {
+            if (this.username == '' && this.password == '') {
+                alert('请填写用户名及密码！');
                 return;
             }
-            this.registing = true;
             window.localStorage.setItem('login', JSON.stringify({
                 username: this.username,
                 password: this.password
             }));
             this.$router.push({
-                name: 'movie'
-            })
-        },
-        check(obj) {
-            if (this.isEmpty(obj.username)) {
-                alert('用户名不能为空')
-                return false;
-            } else if (this.isEmpty(obj.password)) {
-                alert('密码不能为空')
-                return false;
-            }
-            return true;
-        },
-        isEmpty(val) {
-            return val === '';
-        },
-        login() {
-            this.$router.push({
                 name: 'login'
-            })
+            });
         }
     }
 }
 </script>
 <style scoped>
-.regist {
+.regist-1 {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 14px;
+}
+.regist-list {
+    width: 300px;
+    margin: 0 auto;
+}
+.regist-list li {
+    height: 30px;
+    line-height: 30px;
+    overflow: auto;
+    margin-top: 10px;
+    overflow-y: hidden;
+}
+.regist-list li:last-child {
     text-align: center;
 }
-.input-container,
-.md-button {
-    margin-top: 10px;
+.regist-list li label {
+    float: left;
+    width: 50px;
 }
-.return-login {
-    margin-top: 20px;
+.regist-list li input {
+    box-sizing: border-box;
+    display: inline-block;
+    width: 200px;
+    padding-left: 10px;
+    line-height: 24px;
+    border-radius: 10px;
+    outline: none;
 }
-.return-login a {
-    color: #f00;
-}
-.input-container input {
-    border-radius: 5px;
+.login-btn {
+    width: 50px;
+    height: 30px;
+    background: #93d2cf;
+    border: none;
+    display: inline-block;
+    border-radius: 10px;
+    margin-right: 10px;
+    cursor: pointer;
     outline: none;
 }
 </style>

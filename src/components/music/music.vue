@@ -58,7 +58,7 @@ export default {
     float: left;
     width: 150px;
     height: 150px;
-    margin: 0 20px 20px 0;
+    margin: 20px 20px 20px 0;
     cursor: pointer;
 }
 .top-enter-active,

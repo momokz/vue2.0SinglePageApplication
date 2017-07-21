@@ -49,7 +49,6 @@ export default {
         loadMore() {
             this.$http.get('https://api.douban.com/v2/book/user/alex1504/collections')
                 .then(response => {
-                    console.log(1);
                     // console.log(response);
                     this.bookList = response.data.collections;
                     this.spinnerFlag = false;
@@ -75,6 +74,9 @@ export default {
 }
 </script>
 <style scoped>
+#book{
+    margin-top: 20px;
+}
 .my-swipe {
     width: 100%;
     height: 200px;
@@ -82,27 +84,22 @@ export default {
     font-size: 30px;
     text-align: center;
 }
-
 .slide1 {
     background: url('https://img3.doubanio.com/lpic/s27102925.jpg');
     color: #fff;
 }
-
 .slide2 {
     background: url('https://img3.doubanio.com/lpic/s6989253.jpg');
     color: #000;
 }
-
 .slide3 {
     background: url('https://img3.doubanio.com/lpic/s24468373.jpg');
     color: #fff;
 }
-
 .load {
     margin-top: 20px;
     text-align: center;
 }
-
 .book-wrap li {
     box-sizing: border-box;
     overflow: hidden;
@@ -111,7 +108,6 @@ export default {
     border-bottom: 1px dashed #ccc;
     cursor: pointer;
 }
-
 .book-img {
     float: left;
     width: 50px;
@@ -120,7 +116,6 @@ export default {
     border-radius: 50%;
     margin-right: 15px;
 }
-
 .book-info {
     float: left;
     width: 700px;

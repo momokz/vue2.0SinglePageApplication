@@ -1,16 +1,16 @@
 <template>
-    <div class="nav-bar">
-        <ul class="nav-bar-list clearfix">
-            <li v-bind:class="{'active': isActive[0]}" v-on:click="doActive(0)">电影</li>
-            <li v-bind:class="{'active': isActive[1]}" v-on:click="doActive(1)">音乐</li>
-            <li v-bind:class="{'active': isActive[2]}" v-on:click="doActive(2)">书籍</li>
-            <li v-bind:class="{'active': isActive[3]}" v-on:click="doActive(3)">图片</li>
+    <div class="nav-bar clearfix">
+        <ul>
+            <li :class="{'active': isActive[0]}" @click="doActive(0)">电影</li>
+            <li :class="{'active': isActive[1]}" @click="doActive(1)">音乐</li>
+            <li :class="{'active': isActive[2]}" @click="doActive(2)">书籍</li>
+            <li :class="{'active': isActive[3]}" @click="doActive(3)">图片</li>
         </ul>
     </div>
 </template>
 <script>
 export default {
-    name: 'navBar',
+    name: 'navbar',
     data() {
         return {
             isActive: [true, false, false, false],
@@ -52,7 +52,7 @@ export default {
             }
         },
         setNavActive() {
-            let mapActive = {
+            const mapActive = {
                 'movie': 0,
                 'music': 1,
                 'book': 2,
@@ -66,26 +66,19 @@ export default {
 }
 </script>
 <style scoped>
-.nav-bar{
-    margin-bottom: 20px;
-}
-.nav-bar-list {
-    box-sizing: border-box;
-    border-bottom: 1px dashed #ccc;
-    border-right: 1px dashed #ccc;
-    border-left: 1px dashed #ccc;
-}
-.nav-bar-list li{
+.nav-bar li {
     float: left;
     width: 25%;
-    height: 50px;
-    line-height: 50px;
-    cursor: pointer;
-    border-right: 1px dashed #ccc;
-    box-sizing: border-box;
+    height: 36px;
+    line-height: 36px;
+    background: #2196f2 3px;
     text-align: center;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+    opacity: .8;
 }
-.nav-bar-list li.active{
-    color: #f00;
+.nav-bar li.active{
+    opacity: 1;
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
     <div class="movie">
-        <ul class="movie-list">
+        <ul class="movie-nav clearfix">
             <li :class="{'active': isActive==0}" @click="doActive(0)">top</li>
             <li :class="{'active': isActive==1}" @click="doActive(1)">上映</li>
             <li :class="{'active': isActive==2}" @click="doActive(2)">即将上映</li>
@@ -12,7 +12,7 @@
                 <movieListComing></movieListComing>
             </div>
         </div>
-        <!-- header-back -->
+        <!-- return top -->
         <topBack @clickBack="backToTop"></topBack>
     </div>
 </template>
@@ -23,12 +23,6 @@ import movieListComing from '@/components/movie/movie_coming';
 import topBack from '@/components/common/top_back';
 export default {
     name: 'movie',
-    components: {
-        movieListComing,
-        movieListHot,
-        movieListTop,
-        topBack
-    },
     data() {
         return {
             isActive: 0,
@@ -38,38 +32,44 @@ export default {
     mounted() {
         this.$nextTick(() => {
             this.container = this.$el.querySelector('.movie-container');
-            this.container.style.width = 800 * 3 + 'px';
+            this.container.style.width = 3 * 800 + 'px';
         })
     },
     methods: {
-        doActive(num) {
-            this.isActive = num;
-            this.container.style.transform = 'translateX(' + -num * 800 + 'px)';
+        doActive(index) {
+            this.isActive = index;
+            this.container.style.transform = 'translateX(' + -index * 800 + 'px)';
         },
         backToTop() {
             this.$el.querySelectorAll('.movie-scroll')[this.isActive].scrollTop = 0;
         }
+    },
+    components: {
+        movieListComing,
+        movieListHot,
+        movieListTop,
+        topBack
     }
 }
 </script>
 <style scoped>
-.movie-list {
-    height: 50px;
-    line-height: 50px;
-    border-bottom: 1px solid #ccc;
-    border-top: 1px solid #ccc;
+.movie {
+    margin-top: 20px;
 }
-.movie-list li {
-    width: 33%;
+.movie-nav li {
     float: left;
-    box-sizing: border-box;
-    border-right: 1px solid #ccc;
-    cursor: pointer;
+    width: 33%;
+    height: 32px;
+    line-height: 32px;
     text-align: center;
+    font-size: 16px;
+    cursor: pointer;
 }
-.movie-list li:first-child {
+.movie-nav li:last-child {
     width: 34%;
-    border-left: 1px solid #ccc;
+}
+.movie-nav li.active {
+    border-bottom: 2px solid #f00;
 }
 .movie-wrap {
     position: relative;
@@ -77,10 +77,6 @@ export default {
     overflow-x: hidden;
     margin-top: 20px;
     padding-bottom: 20px;
-    /* border: 1px solid #ccc; */
-}
-.active {
-    color: #f00;
 }
 .movie-container {
     transition: all .5s;

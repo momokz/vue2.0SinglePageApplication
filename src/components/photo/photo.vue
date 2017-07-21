@@ -65,7 +65,7 @@ export default {
             }
             this.buys = true;
             this.spinnerFlag = true;
-            this.$http.get('https://gank.io/api/data/福利/20/' + this.page)
+            this.$http.get('https://gank.io/api/data/福利/30/' + this.page)
                 .then(response => {
                     // console.log(response);
                     response.data.results.forEach(photo => {
@@ -100,22 +100,19 @@ export default {
     margin: 20px 0;
     text-align: center;
 }
-
 .book-scroll {
     height: 80vh;
     overflow-y: scroll;
 }
-
 .photo-wrap {
     min-height: 85vh;
+    margin-top: 20px;
     height: auto;
 }
-
 .photo-wrap > div {
     display: flex;
     flex-wrap: wrap;
 }
-
 .photo-wrap .item {
     width: 100px;
     height: 100px;
@@ -123,18 +120,15 @@ export default {
     margin: 2px;
     cursor: pointer;
 }
-
 .photo-wrap img {
     height: 100px;
     object-fit: cover;
     vertical-align: bottom;
 }
-
 .opactiy-enter-active,
 .opactiy-leave-active {
     transition: all .6s;
 }
-
 .opactiy-enter,
 .opacity-leave-active {
     opacity: 0;

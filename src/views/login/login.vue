@@ -1,24 +1,24 @@
 <template>
-    <div class="login" @keyup.enter="login">
-        <form autocomplete="off" novalidate>
-            <div class="md-input-container">
+    <div class="login">
+        <ul>
+            <li>
                 <label for="">用户名：</label>
                 <input type="text" v-model="username" :required="inputFlag">
-            </div>
-            <div class="md-input-container">
+            </li>
+            <li>
                 <label for="">密&nbsp;&nbsp;&nbsp;&nbsp;码：</label>
                 <input type="password" v-model="password" :required="inputFlag">
-            </div>
-            <div class="md-button">
-                <button @click.prevent="login">登录</button>
-                <button @click.prevent="goRegist">注册</button>
-            </div>
-            <div class="login-comment">
-                <p>可以自己注册</p>
-                也可以是公共账号：test 密码：test
-            </div>
-        </form>
-        <div class="overlay" v-show="logging">登录中..</div>
+            </li>
+            <li>
+                <button type="button" class="login-btn" @click="login()">登录</button>
+                <button type="button" class="login-btn" @click="goRegist()">注册</button>
+            </li>
+        </ul>
+        <hr>
+        <div class="login-comment">
+            <p>可以使用测试账号登录，用户名：test，密码：test</p>
+            <p>或是注册自己的账号</p>
+        </div>
     </div>
 </template>
 <script>
@@ -84,25 +84,50 @@ export default {
 }
 </script>
 <style scoped>
-.login {
+.login ul {
+    width: 300px;
+    margin: 0 auto;
+}
+.login li {
+    height: 30px;
+    line-height: 30px;
+    overflow: auto;
+    margin-top: 10px;
+    overflow-y: hidden;
+}
+.login li:last-child {
     text-align: center;
 }
-.md-input-container,
-.md-button {
-    margin-top: 20px;
+.login li label {
+    float: left;
+    width: 50px;
 }
-.md-button button:first-child {
-    margin-right: 10px;
-}
-.md-input-container input {
-    border-radius: 5px;
+.login li input {
+    box-sizing: border-box;
+    display: inline-block;
+    width: 200px;
+    padding-left: 10px;
+    line-height: 24px;
+    border-radius: 10px;
     outline: none;
 }
-.overlay {
-    margin-top: 20px;
+.login-comment {
+    margin-top: 10px;
+    text-align: center;
+    line-height: 24px;
 }
-.login-comment{
-    margin-top: 20px;
-    line-height: 20px;
+.login hr {
+    margin: 15px 0;
+}
+.login-btn {
+    width: 50px;
+    height: 30px;
+    background: #93d2cf;
+    border: none;
+    display: inline-block;
+    border-radius: 10px;
+    margin-right: 10px;
+    cursor: pointer;
+    outline: none;
 }
 </style>

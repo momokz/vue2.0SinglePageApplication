@@ -11,22 +11,19 @@ export default {
 }
 </script>
 <style>
-*{
+* {
     margin: 0;
     padding: 0;
 }
-html{
-    overflow-y: scroll;
-}
-html, body{
+html, body {
     overflow-x: hidden;
     /* overflow-y: hidden; */
     /* height: 100%; */
 }
-ul, li{
+ul, li {
     list-style: none;
 }
-img{
+img {
     display: block;
     width: 100%;
 }
@@ -63,24 +60,25 @@ img{
     transform: translateX(-100px);
 }
 /* 定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸 */
-::-webkit-scrollbar  
-{  
-    width: 10px;  
-    height: 10px;  
-    background-color: #fff;  
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+    background-color: #fff;
 }
-/* 定义滚动条轨道 内阴影+圆角 */  
-::-webkit-scrollbar-track  
-{ 
-    border-radius: 10px;  
-    background-color: #fff;  
-}  
-  
-/* 定义滑块 内阴影+圆角 */  
-::-webkit-scrollbar-thumb  
-{  
-    border-radius: 20px;  
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);  
-    background-color: #555;  
-}  
+/* 定义滚动条轨道 内阴影+圆角 */
+::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background-color: #fff;
+}
+/* 定义滑块 内阴影+圆角 */
+::-webkit-scrollbar-thumb {
+    border-radius: 20px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+    background-color: #555;
+}
+/* load */
+.load{
+    text-align: center;
+    margin-top: 20px;
+}
 </style>
