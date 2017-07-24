@@ -51,7 +51,7 @@ export default {
     methods: {
         isscrollBottom() {
             let winH = window.innerHeight || document.documentElement.clientHeight;
-            let navH = document.querySelector('.navbar').offsetHeight * 2 + 20;
+            let navH = document.querySelector('.nav-bar').offsetHeight * 2 + 20;
             let scrT = this.container.scrollTop;
             let innerWinH = winH - navH;
             let eleH = this.eleH;
