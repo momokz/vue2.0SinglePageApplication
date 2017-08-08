@@ -1,3 +1,6 @@
+# 2017-08-08
+修改了config/index.js 里面的proxyTable配置
+
 # 2017-07-21
 更新了 movie 文件夹下的文件，增加了movie_data.vue文件来处理数据渲染。
 
